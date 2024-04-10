@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-finvec-dev-624a4-authRole",
+      "UnauthRoleArn": "arn:aws:iam::767397915267:role/amplify-finvec-dev-624a4-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::767397915267:role/amplify-finvec-dev-624a4-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-finvec-dev-624a4-deployment",
+      "UnauthRoleName": "amplify-finvec-dev-624a4-unauthRole",
+      "StackName": "amplify-finvec-dev-624a4",
+      "StackId": "arn:aws:cloudformation:us-east-2:767397915267:stack/amplify-finvec-dev-624a4/21b7cd80-f78c-11ee-92aa-0a94e6023461",
+      "AmplifyAppId": "d1sivmd2y9befe"
+    }
+  }
+}
