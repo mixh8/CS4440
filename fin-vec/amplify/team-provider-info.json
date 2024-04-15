@@ -10,6 +10,11 @@
       "StackName": "amplify-finvec-dev-624a4",
       "StackId": "arn:aws:cloudformation:us-east-2:767397915267:stack/amplify-finvec-dev-624a4/21b7cd80-f78c-11ee-92aa-0a94e6023461",
       "AmplifyAppId": "d1sivmd2y9befe"
+    },
+    "categories": {
+      "api": {
+        "finvec": {}
+      }
     }
   }
 }

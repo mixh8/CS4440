@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "finvec",
+    "serviceName": "AppSync",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 360,
+      "apiKeyExpirationDate": "2025-04-10T19:34:57.748Z",
+      "keyDescription": "dev"
+    }
+  }
+}

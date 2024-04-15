@@ -1,1 +1,9 @@
-export type AmplifyDependentResourcesAttributes = {}
+export type AmplifyDependentResourcesAttributes = {
+  "api": {
+    "finvec": {
+      "GraphQLAPIEndpointOutput": "string",
+      "GraphQLAPIIdOutput": "string",
+      "GraphQLAPIKeyOutput": "string"
+    }
+  }
+}

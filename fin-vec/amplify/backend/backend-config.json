@@ -1,1 +1,22 @@
-{}
+{
+  "api": {
+    "finvec": {
+      "dependsOn": [],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2025-04-10T19:34:57.748Z",
+              "apiKeyExpirationDays": 360,
+              "description": "dev"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  }
+}
