@@ -2,6 +2,7 @@ import torch
 import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 import pandas as pd
+import torch.nn as nn
 from autoencoder import Autoencoder
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import MinMaxScaler
