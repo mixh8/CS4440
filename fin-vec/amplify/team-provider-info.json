@@ -13,7 +13,13 @@
     },
     "categories": {
       "api": {
-        "finvec": {}
+        "finvecapi": {}
+      },
+      "function": {
+        "searchTicker": {
+          "deploymentBucketName": "amplify-finvec-dev-624a4-deployment",
+          "s3Key": "amplify-builds/searchTicker-434c797347754441714b-build.zip"
+        }
       }
     }
   }
