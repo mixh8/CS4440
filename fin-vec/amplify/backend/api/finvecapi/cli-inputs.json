@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/ticker": {
+      "name": "/ticker",
+      "lambdaFunction": "searchTicker",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
