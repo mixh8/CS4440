@@ -47,12 +47,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "searchTicker",
+            "stockSearch",
             {
               "Fn::Join": [
                 "",
                 [
-                  "searchTicker",
+                  "stockSearch",
                   "-",
                   {
                     "Ref": "env"
@@ -89,12 +89,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "finvecLambdaRole8e7034e1",
+            "finvecLambdaRolec7fb4b8f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "finvecLambdaRole8e7034e1",
+                  "finvecLambdaRolec7fb4b8f",
                   "-",
                   {
                     "Ref": "env"

@@ -1,6 +1,6 @@
 {
   "api": {
-    "finvecapi": {
+    "stockSearch": {
       "dependsOn": [
         {
           "attributes": [
@@ -8,34 +8,60 @@
             "Arn"
           ],
           "category": "function",
-          "resourceName": "searchTicker"
+          "resourceName": "stockSearch"
         }
       ],
       "providerPlugin": "awscloudformation",
       "service": "API Gateway"
     }
   },
+  "auth": {
+    "finvec": {
+      "dependsOn": [],
+      "frontendAuthConfig": {
+        "mfaConfiguration": "OFF",
+        "mfaTypes": [
+          "SMS"
+        ],
+        "passwordProtectionSettings": {
+          "passwordPolicyCharacters": [],
+          "passwordPolicyMinLength": 8
+        },
+        "signupAttributes": [
+          "EMAIL"
+        ],
+        "socialProviders": [],
+        "usernameAttributes": [],
+        "verificationMechanisms": [
+          "EMAIL"
+        ]
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "managed"
+    }
+  },
   "function": {
-    "searchTicker": {
+    "stockSearch": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     }
   },
   "parameters": {
-    "AMPLIFY_function_searchTicker_deploymentBucketName": {
+    "AMPLIFY_function_stockSearch_deploymentBucketName": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "searchTicker"
+          "resourceName": "stockSearch"
         }
       ]
     },
-    "AMPLIFY_function_searchTicker_s3Key": {
+    "AMPLIFY_function_stockSearch_s3Key": {
       "usedBy": [
         {
           "category": "function",
-          "resourceName": "searchTicker"
+          "resourceName": "stockSearch"
         }
       ]
     }

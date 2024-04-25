@@ -1,3 +1,7 @@
+import { Amplify } from 'aws-amplify';
+import amplifyconfig from '../amplifyconfiguration.json';
+
+Amplify.configure(amplifyconfig);
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";

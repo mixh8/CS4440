@@ -9,17 +9,21 @@
       "UnauthRoleName": "amplify-finvec-dev-624a4-unauthRole",
       "StackName": "amplify-finvec-dev-624a4",
       "StackId": "arn:aws:cloudformation:us-east-2:767397915267:stack/amplify-finvec-dev-624a4/21b7cd80-f78c-11ee-92aa-0a94e6023461",
-      "AmplifyAppId": "d1sivmd2y9befe"
+      "AmplifyAppId": "d1sivmd2y9befe",
+      "APIGatewayAuthURL": "https://s3.amazonaws.com/amplify-finvec-dev-624a4-deployment/amplify-cfn-templates/api/APIGatewayAuthStack.json"
     },
     "categories": {
-      "api": {
-        "finvecapi": {}
-      },
       "function": {
-        "searchTicker": {
+        "stockSearch": {
           "deploymentBucketName": "amplify-finvec-dev-624a4-deployment",
-          "s3Key": "amplify-builds/searchTicker-434c797347754441714b-build.zip"
+          "s3Key": "amplify-builds/stockSearch-5a502f416a304a5a7876-build.zip"
         }
+      },
+      "auth": {
+        "finvec": {}
+      },
+      "api": {
+        "stockSearch": {}
       }
     }
   }

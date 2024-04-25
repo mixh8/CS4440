@@ -3,7 +3,7 @@
   "paths": {
     "/ticker": {
       "name": "/ticker",
-      "lambdaFunction": "searchTicker",
+      "lambdaFunction": "stockSearch",
       "permissions": {
         "setting": "open"
       }
