@@ -64,7 +64,13 @@ export default function Search({ placeholder }: { placeholder: string }) {
         }
         console.log("Searching for " + ticker);
         try {
-            const response = await getKSimilar(ticker, Number(k), Math.floor(new Date(date).getTime() / 1000), priceOption);
+            let dateCopy = new Date(date);
+            // get next tuesday of date if date is before 2022
+            if (dateCopy.getFullYear() < 2022) {
+                dateCopy.setDate(dateCopy.getDate() + (1 + 7 - dateCopy.getDay()) % 7);
+            }
+            
+            const response = await getKSimilar(ticker, Number(k), Math.floor(dateCopy.getTime() / 1000), priceOption);
             setSearchResults(response.data);
         } catch (error) {
             console.error('Error fetching search results:', error);
