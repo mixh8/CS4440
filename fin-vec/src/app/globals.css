@@ -24,7 +24,8 @@ text {
 
 #graph {
   height: 600px;
-  width: 1000px;
+  width: 100%;
+  margin: auto;
 }
 
 @layer utilities {

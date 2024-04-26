@@ -1,7 +1,15 @@
 import { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import 'chartjs-adapter-date-fns';
-import zoomPlugin from 'chartjs-plugin-zoom';
+
+let zoomPlugin: any;
+let annotationPlugin: any;
+
+const loadPlugins = async () => {
+    zoomPlugin = (await import('chartjs-plugin-zoom')).default;
+    annotationPlugin = (await import('chartjs-plugin-annotation')).default;
+    Chart.register(zoomPlugin, annotationPlugin);
+};
 
 interface DataPoint {
     price: {
@@ -15,16 +23,15 @@ interface DataPoint {
     };
 }
 
-Chart.register(zoomPlugin);
-const colors = ['black', 'red', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'gray', 'brown', 'cyan'];
+loadPlugins();
+const colors = ['black', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'gray', 'brown', 'cyan'];
 
-export default function MyChart({ data }: { data: Record<string, DataPoint[]> }) {
+export default function MyChart({ data, lineDate }: { data: Record<string, DataPoint[]>, lineDate: string }) {
     const chartRef = useRef(null);
     const chartInstanceRef = useRef<Chart<"line", { x: Date; y: number; }[], unknown> | null>(null);
 
     useEffect(() => {
         if (chartRef.current) {
-            // If there's an old chart instance, destroy it
             if (chartInstanceRef.current) {
                 chartInstanceRef.current.destroy();
                 chartInstanceRef.current = null;
@@ -39,7 +46,6 @@ export default function MyChart({ data }: { data: Record<string, DataPoint[]> })
                 pointRadius: 0,
             }));
 
-            // Create a new chart instance and store it in the ref
             chartInstanceRef.current = new Chart(chartRef.current, {
                 type: 'line',
                 data: { datasets },
@@ -70,12 +76,23 @@ export default function MyChart({ data }: { data: Record<string, DataPoint[]> })
                                 },
                                 mode: 'x'
                             }
+                        },
+                        annotation: {
+                            annotations: {
+                                verticalLine: {
+                                    type: 'line',
+                                    xMin: lineDate,
+                                    xMax: lineDate,
+                                    borderColor: 'red',
+                                    borderWidth: 2,
+                                }
+                            }
                         }
                     }
                 }
             });
         }
-    }, [data]);
+    }, [data, lineDate]);
 
     return <canvas ref={chartRef} />;
 }

@@ -18,6 +18,17 @@ export default function Search({ placeholder }: { placeholder: string }) {
     const [priceOption, setPriceOption] = useState('');
 
     const priceOptions = ["Underperforming", "Overperforming"];
+    const industries = ['Heathcare', 'Retail', 'Healthcare', 'Business', 'Software', 'Semiconductor',
+        'Farming', 'Utility', 'Power', 'Insurance', 'Chemical', 'Air', 'Electrical',
+        'Drugs', 'R.E.I.T.', 'Building', 'Electronics', 'Steel', 'Food', 'Aerospace',
+        'Bank', 'Investments', 'Beverage', 'Information', 'Auto', 'Household', 'Oil',
+        'Cable', 'Financial', 'Engineering', 'Telecom', 'Transportation',
+        'Homebuilding', 'Machinery', 'Restaurant', 'Entertainment', 'Hotel', 'Apparel',
+        'Diversified', 'Rubber', 'Oilfield', 'Recreation', 'Computers', 'Computer',
+        'Advertising', 'Trucking', 'Brokerage', 'Furn', 'Construction', 'Tobacco',
+        'Shoe', 'Packaging', 'Office', 'Environmental', 'Hospitals', 'Real', 'Telecom',
+        'Education', 'Banks', 'Precious', 'Reinsurance', 'Broadcasting', 'Publishing',
+        'Metals'];
 
     const handleTickerChange = (e: ChangeEvent<HTMLInputElement>) => {
         setTicker(e.target.value);
@@ -25,10 +36,9 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
     const handleDateChange = (e: ChangeEvent<HTMLInputElement>) => {
         setDate(e.target.value);
-        console.log(date)
     };
 
-    const handleIndustryChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const handleIndustryChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setIndustry(e.target.value);
     };
 
@@ -41,7 +51,6 @@ export default function Search({ placeholder }: { placeholder: string }) {
     };
 
     async function handleSearch() {
-        // You can perform further actions here, like sending the data to a server or processing it in some way
         console.log("Ticker: " + ticker);
         console.log("Date: " + date);
         console.log("Industry: " + industry);
@@ -50,15 +59,14 @@ export default function Search({ placeholder }: { placeholder: string }) {
             return;
         }
         console.log("Searching for " + ticker);
-        // sample request
         try {
             const response = await getKSimilar(ticker, Number(k), Math.floor(new Date(date).getTime() / 1000));
-            setSearchResults(response.data); // Assuming the response has a 'data' property containing the search results
+            setSearchResults(response.data);
         } catch (error) {
             console.error('Error fetching search results:', error);
         }
     };
-    
+
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="max-w-md mx-auto">
@@ -75,12 +83,12 @@ export default function Search({ placeholder }: { placeholder: string }) {
                     </div>
 
                     <div>
-                        <label htmlFor="num-vectors" className="block text-sm font-medium text-gray-700">Num Vectors:</label>
+                        <label htmlFor="num-vectors" className="block text-sm font-medium text-gray-700">Num Similar Stocks:</label>
                         <input type="text" id="num-vectors" name="num-vectors" value={k} onChange={handleKChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
 
                     <div>
-                        <label htmlFor="priceOption" className="block text-sm font-medium text-gray-700">Price Option:</label>
+                        <label htmlFor="priceOption" className="block text-sm font-medium text-gray-700">Performance [Optional]:</label>
                         <select id="priceOption" name="priceOption" value={priceOption} onChange={handlePriceOptionChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                             <option value="">Select a price option</option>
                             {priceOptions.map((option, index) => (
@@ -89,11 +97,21 @@ export default function Search({ placeholder }: { placeholder: string }) {
                         </select>
                     </div>
 
+                    <div>
+                        <label htmlFor="industry" className="block text-sm font-medium text-gray-700">Industry [Optional]:</label>
+                        <select id="industry" name="industry" value={industry} onChange={handleIndustryChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
+                            <option value="">Select an industry</option>
+                            {industries.map((industry, index) => (
+                                <option key={index} value={industry}>{industry}</option>
+                            ))}
+                        </select>
+                    </div>
+
                     <button type="submit" className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Run Query</button>
                 </form>
             </div>
             <div className="flex min-h-screen flex-col items-center justify-between p-24" id="graph">
-                {searchResults && Object.keys(searchResults).length > 0 && <Graph data={searchResults} />}
+                {searchResults && Object.keys(searchResults).length > 0 && <Graph data={searchResults} lineDate={date}/>}
             </div>
         </div>
     );
