@@ -12,12 +12,13 @@ import Graph from './graph';
 export default function Search({ placeholder }: { placeholder: string }) {
     const [ticker, setTicker] = useState('');
     const [date, setDate] = useState('');
-    const [industry, setIndustry] = useState('');
+    //const [industry, setIndustry] = useState('');
     const [k, setK] = useState('');
     const [searchResults, setSearchResults] = useState<Record<string, any[]>>({});
     const [priceOption, setPriceOption] = useState('');
 
     const priceOptions = ["Underperforming", "Overperforming"];
+    /*
     const industries = ['Heathcare', 'Retail', 'Healthcare', 'Business', 'Software', 'Semiconductor',
         'Farming', 'Utility', 'Power', 'Insurance', 'Chemical', 'Air', 'Electrical',
         'Drugs', 'R.E.I.T.', 'Building', 'Electronics', 'Steel', 'Food', 'Aerospace',
@@ -29,6 +30,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
         'Shoe', 'Packaging', 'Office', 'Environmental', 'Hospitals', 'Real', 'Telecom',
         'Education', 'Banks', 'Precious', 'Reinsurance', 'Broadcasting', 'Publishing',
         'Metals'];
+    */
 
     const handleTickerChange = (e: ChangeEvent<HTMLInputElement>) => {
         setTicker(e.target.value);
@@ -38,9 +40,11 @@ export default function Search({ placeholder }: { placeholder: string }) {
         setDate(e.target.value);
     };
 
+    /*
     const handleIndustryChange = (e: ChangeEvent<HTMLSelectElement>) => {
         setIndustry(e.target.value);
     };
+    */
 
     const handleKChange = (e: ChangeEvent<HTMLInputElement>) => {
         setK(e.target.value);
@@ -53,7 +57,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
     async function handleSearch() {
         console.log("Ticker: " + ticker);
         console.log("Date: " + date);
-        console.log("Industry: " + industry);
+        //console.log("Industry: " + industry);
 
         if (ticker === '') {
             return;
@@ -97,7 +101,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
                         </select>
                     </div>
 
-                    <div>
+                    {/* <div>
                         <label htmlFor="industry" className="block text-sm font-medium text-gray-700">Industry [Optional]:</label>
                         <select id="industry" name="industry" value={industry} onChange={handleIndustryChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500">
                             <option value="">Select an industry</option>
@@ -105,7 +109,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
                                 <option key={index} value={industry}>{industry}</option>
                             ))}
                         </select>
-                    </div>
+                    </div> */}
 
                     <button type="submit" className="mt-4 w-full inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">Run Query</button>
                 </form>

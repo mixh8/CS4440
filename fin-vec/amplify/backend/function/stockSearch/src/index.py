@@ -14,8 +14,7 @@ def handler(event, context):
     ticker = event_parameters['ticker'].upper()
     unix_time = int(event_parameters['unix_time'])
     k = int(event_parameters['k'])
-    performance = '$lt' if event_parameters['performance'] == 'Underperforming' else '$gt'
-
+    performance = event_parameters['performance']
 
     dynamo_client = boto3.client('dynamodb')
 
@@ -40,17 +39,24 @@ def handler(event, context):
 
     idx = pc.Index('finvecdb')
 
+    filter_dict = {
+        'date': {
+            '$eq': unix_time
+        }
+    }
+    if performance == 'Underperforming':
+        filter_dict['Price Change'] = {
+            '$lt': price_change
+        }
+    elif performance == 'Overperforming':
+        filter_dict['Price Change'] = {
+            '$gt': price_change
+        }
+
     res = idx.query(
         vector=embedding,
         top_k=k,
-        filter={
-            'date': {
-                '$eq': unix_time
-            },
-            'Price Change': {
-                performance: price_change
-            }
-        },
+        filter=filter_dict,
         include_metadata=True
 
     )
