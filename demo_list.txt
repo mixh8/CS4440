@@ -1,0 +1,5 @@
+AMD; 02/27/2018 - Most similar are HPE (Hewlett Packard Enterprise, and IT company), AME (AMETEK, a electronic instrument manufacturer)
+KO; 01/22/2019 - Cocacola most similar to Pepsi
+T (AT&T) 08/31/2021 - T Mobile, FB, and ON (a semiconductor group that makes signal communication tech)
+NKE 03/01/2022 - Fossil (fashion group), Ralph Lauren
+NSC (Norfolk Souther railroad) 03/16/2022 - CVX (Chevron); Would assume correlation between trains and oil
