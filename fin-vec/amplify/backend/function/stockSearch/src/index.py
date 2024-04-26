@@ -50,6 +50,19 @@ def handler(event, context):
     print("Pinecone result: ", res)
 
     similar_data = {}
+
+    # add queried stock data
+    response = dynamo_client.query(
+        TableName='findata',
+        KeyConditionExpression='ticker = :ticker',
+        ExpressionAttributeValues={
+            ':ticker': {'S': ticker}
+        },
+        ProjectionExpression='unix_time,industry,price'
+    )
+    data = response['Items']
+    similar_data[ticker] = data
+
     for result in res['matches']:
         ticker = result['metadata']['ticker']
         response = dynamo_client.query(
