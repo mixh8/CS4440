@@ -1,0 +1,31 @@
+{
+  "aws_project_region": "us-east-2",
+  "aws_cloud_logic_custom": [
+    {
+      "name": "stockSearch",
+      "endpoint": "https://0n4b2gh32f.execute-api.us-east-2.amazonaws.com/dev",
+      "region": "us-east-2"
+    }
+  ],
+  "aws_cognito_identity_pool_id": "us-east-2:8104aa3a-c5e3-462c-b148-2cce2c54e2b6",
+  "aws_cognito_region": "us-east-2",
+  "aws_user_pools_id": "us-east-2_hzNSosYJY",
+  "aws_user_pools_web_client_id": "36tmr542f4rmklbedpg64el9io",
+  "oauth": {},
+  "aws_cognito_username_attributes": [],
+  "aws_cognito_social_providers": [],
+  "aws_cognito_signup_attributes": [
+    "EMAIL"
+  ],
+  "aws_cognito_mfa_configuration": "OFF",
+  "aws_cognito_mfa_types": [
+    "SMS"
+  ],
+  "aws_cognito_password_protection_settings": {
+    "passwordPolicyMinLength": 8,
+    "passwordPolicyCharacters": []
+  },
+  "aws_cognito_verification_mechanisms": [
+    "EMAIL"
+  ]
+}
