@@ -6,9 +6,11 @@ let zoomPlugin: any;
 let annotationPlugin: any;
 
 const loadPlugins = async () => {
-    zoomPlugin = (await import('chartjs-plugin-zoom')).default;
-    annotationPlugin = (await import('chartjs-plugin-annotation')).default;
-    Chart.register(zoomPlugin, annotationPlugin);
+    if (typeof window !== 'undefined') {
+        zoomPlugin = (await import('chartjs-plugin-zoom')).default;
+        annotationPlugin = (await import('chartjs-plugin-annotation')).default;
+        Chart.register(zoomPlugin, annotationPlugin);
+    }
 };
 
 interface DataPoint {
@@ -24,7 +26,7 @@ interface DataPoint {
 }
 
 loadPlugins();
-const colors = ['black', 'blue', 'green', 'yellow', 'purple', 'orange', 'pink', 'gray', 'brown', 'cyan'];
+const colors = ['black', 'DarkBlue', 'MediumBlue', 'DodgerBlue', 'LightSkyBlue', 'PaleTurquoise'];
 
 export default function MyChart({ data, lineDate }: { data: Record<string, DataPoint[]>, lineDate: string }) {
     const chartRef = useRef(null);
@@ -45,7 +47,7 @@ export default function MyChart({ data, lineDate }: { data: Record<string, DataP
                 tension: 0.1,
                 pointRadius: 0,
             }));
-
+            
             chartInstanceRef.current = new Chart(chartRef.current, {
                 type: 'line',
                 data: { datasets },
