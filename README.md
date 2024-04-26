@@ -1,3 +1,3 @@
-# CS4440
-CS 4440 project
-https://cs-4440.vercel.app/
+# CS4440 - Group 9
+## Vector-Based Financial Similarity Analysis System
+App link: https://cs-4440.vercel.app/
