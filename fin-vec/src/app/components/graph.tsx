@@ -20,7 +20,7 @@ const colors = ['black', 'red', 'blue', 'green', 'yellow', 'purple', 'orange', '
 
 export default function MyChart({ data }: { data: Record<string, DataPoint[]> }) {
     const chartRef = useRef(null);
-    const chartInstanceRef = useRef(null);
+    const chartInstanceRef = useRef<Chart<"line", { x: Date; y: number; }[], unknown> | null>(null);
 
     useEffect(() => {
         if (chartRef.current) {
