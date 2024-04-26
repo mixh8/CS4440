@@ -5,7 +5,7 @@ interface ApiResponse<T> {
     error?: any
 }
 
-export async function getKSimilar(ticker: string, k: number, unix_time: number): Promise<ApiResponse<any>> {
+export async function getKSimilar(ticker: string, k: number, unix_time: number, performance: string): Promise<ApiResponse<any>> {
     try {
         /**
          * Example request:
@@ -21,7 +21,8 @@ export async function getKSimilar(ticker: string, k: number, unix_time: number):
                 queryParams: {
                     ticker: ticker,
                     k: k.toString(),
-                    unix_time: unix_time.toString()
+                    unix_time: unix_time.toString(),
+                    performance: performance
                 }
             },
         })
