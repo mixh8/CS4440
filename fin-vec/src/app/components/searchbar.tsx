@@ -89,7 +89,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
 
                     <div>
                         <label htmlFor="date" className="block text-sm font-medium text-gray-700">Date:</label>
-                        <input type="date" id="date" name="date" value={date} onChange={handleDateChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
+                        <input type="date" min='2013-01-01' max="2023-12-31" id="date" name="date" value={date} onChange={handleDateChange} className="mt-1 p-2 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500" />
                     </div>
 
                     <div>
