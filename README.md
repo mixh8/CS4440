@@ -1,6 +1,6 @@
 # Vector-Based Financial Similarity Analysis System
 
-Contributors:
+Group 9; Contributors:
 * Zachary Breitbart
 * David Keefe
 * Erich Drawdy
@@ -60,3 +60,4 @@ Num Similar Stocks: Number of similar stocks that will be returned by Pinecone a
 Performance [Optional]: 
  * Underperforming: Only returns stocks whose 7 day price % change is less than the stock specified in "Ticker" field.
  * Overperforming: Only returns stocks whose 7 day price % change is more than the stock specified in "Ticker" field.
+
