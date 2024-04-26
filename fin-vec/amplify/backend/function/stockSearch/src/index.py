@@ -14,6 +14,8 @@ def handler(event, context):
     ticker = event_parameters['ticker'].upper()
     unix_time = int(event_parameters['unix_time'])
     k = int(event_parameters['k'])
+    performance = '$lt' if event_parameters['performance'] == 'Underperforming' else '$gt'
+
 
     dynamo_client = boto3.client('dynamodb')
 
@@ -26,6 +28,8 @@ def handler(event, context):
     )
 
     data = response['Item']
+
+    price_change = data['7d_price_change']['N']
 
     embedding = [float(data['e_vector_0']['S']),
                  float(data['e_vector_1']['S'])]
@@ -42,6 +46,9 @@ def handler(event, context):
         filter={
             'date': {
                 '$eq': unix_time
+            },
+            'Price Change': {
+                performance: price_change
             }
         },
         include_metadata=True

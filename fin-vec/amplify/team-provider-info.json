@@ -16,7 +16,7 @@
       "function": {
         "stockSearch": {
           "deploymentBucketName": "amplify-finvec-dev-624a4-deployment",
-          "s3Key": "amplify-builds/stockSearch-5778442b6c54346a6e7a-build.zip"
+          "s3Key": "amplify-builds/stockSearch-444a667977462f6d5657-build.zip"
         }
       },
       "auth": {
