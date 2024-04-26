@@ -29,7 +29,7 @@ def handler(event, context):
 
     data = response['Item']
 
-    price_change = data['7d_price_change']['N']
+    price_change = float(data['7d_price_change']['S'])
 
     embedding = [float(data['e_vector_0']['S']),
                  float(data['e_vector_1']['S'])]
