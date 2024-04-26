@@ -58,42 +58,7 @@ export default function Search({ placeholder }: { placeholder: string }) {
             console.error('Error fetching search results:', error);
         }
     };
-
-    /*
-    return (
-        <div>
-            <div>
-                <h2>Query Form</h2>
-                <form onSubmit={(e) => { e.preventDefault(); handleSearch(); }}>
-                    <label htmlFor="ticker">Ticker:</label><br />
-                    <input type="text" id="ticker" name="ticker" value={ticker} onChange={handleTickerChange} /><br />
-
-                    <label htmlFor="date">Date:</label><br />
-                    <input type="date" id="date" name="date" value={date} onChange={handleDateChange} /><br />
-
-                    <label htmlFor="num vectors">Num Vectors:</label><br />
-                    <input type="text" id="num vectors" name="num vectors" value={k} onChange={handleKChange} /><br />
-
-                    <label htmlFor="industry">Industry:</label><br />
-                    <input type="text" id="industry" name="industry" value={industry} onChange={handleIndustryChange} /><br />
-
-                    <label htmlFor="priceOption">Price Option:</label><br />
-                    <select id="priceOption" name="priceOption" value={priceOption} onChange={handlePriceOptionChange}>
-                        <option value="">Select a price option</option>
-                        {priceOptions.map((option, index) => (
-                            <option key={index} value={option}>{option}</option>
-                        ))}
-                    </select><br />
-
-                    <button type="submit">Run Query</button>
-                </form>
-            </div>
-            <div className="flex min-h-screen flex-col items-center justify-between p-24" id="graph">
-                {searchResults && Object.keys(searchResults).length > 0 && <Graph data={searchResults} />}
-            </div>
-        </div>
-    );
-    */
+    
     return (
         <div className="container mx-auto px-4 py-8">
             <div className="max-w-md mx-auto">

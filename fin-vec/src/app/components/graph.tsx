@@ -68,7 +68,7 @@ export default function MyChart({ data }: { data: Record<string, DataPoint[]> })
                                 wheel: {
                                     enabled: true
                                 },
-                                mode: 'xy'
+                                mode: 'x'
                             }
                         }
                     }
