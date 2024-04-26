@@ -13,6 +13,8 @@ CS 4440: Emerging Database Technologies
 
 Dr. Kexin Rong
 
+GitHub Repository: https://github.com/mixh8/CS4440
+
 ## About
 
 This project is an application that utilizes a vector database to analyze and identify similarities in fundamental financial data. This database leverages vector embeddings to compare stocks based on company filing financial metrics. In addition to our vector database, we use a DynamoDB database instance that allows for simple and efficient filtering and querying of stock ticker data at a given point in time, returning both a reference to its associated vector embedding and stock performance metrics. This app allows users to filter our DynamoDB database for stocks performing in a certain range, and then query against our vector database with those stocks to find correlated companies that are undervalued.  This information could potentially be used to extract value via a correlation-based investing algorithm. 
